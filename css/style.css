@@ -101,6 +101,17 @@ a:hover {
     margin-right: 0;
   }
 }
+.warning {
+  color: #fff;
+  background: #f00;
+  margin: 0;
+  padding: 15px 22px;
+}
+.warning a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
 #header {
   text-shadow: 0 0 1px #fff;
   margin: 50px auto;

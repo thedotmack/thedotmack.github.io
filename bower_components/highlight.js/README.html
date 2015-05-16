@@ -1,11 +1,9 @@
-<h1 id="Highlight-js">Highlight.js</h1>
-<p>Highlight.js highlights syntax in code examples on blogs, forums and,<br>in fact, on any web page. It’s very easy to use because it works<br>automatically: finds blocks of code, detects a language, highlights it.</p>
+<h1 id="Highlight-js">Highlight.js</h1><p>Highlight.js highlights syntax in code examples on blogs, forums and,<br>in fact, on any web page. It’s very easy to use because it works<br>automatically: finds blocks of code, detects a language, highlights it.</p>
 <p>Autodetection can be fine tuned when it fails by itself (see “Heuristics”).</p>
-<h2 id="Basic_usage">Basic usage</h2>
-<p>Link the library and a stylesheet from your page and hook highlighting to<br>the page load event:</p>
+<h2 id="Basic_usage">Basic usage</h2><p>Link the library and a stylesheet from your page and hook highlighting to<br>the page load event:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"styles/default.css"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"highlight.pack.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">hljs.initHighlightingOnLoad();</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"highlight.pack.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="ocaml">hljs.initHighlightingOnLoad<span class="literal">()</span>;</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </code></pre>
 <p>This will highlight all code on the page marked up as <code>&lt;pre&gt;&lt;code&gt; .. &lt;/code&gt;&lt;/pre&gt;</code>.<br>If you use different markup or need to apply highlighting dynamically, read<br>“Custom initialization” below.</p>
 <ul>
@@ -14,11 +12,10 @@
 <li><p>Style themes are available in the download package or as hosted files.<br>To create a custom style for your site see the class reference in the file<br><a href="http://github.com/isagalaev/highlight.js/blob/master/classref.txt">classref.txt</a> from the downloaded package.</p>
 </li>
 </ul>
-<h2 id="node-js">node.js</h2>
-<p>Highlight.js can be used under node.js. The package with all supported languages is<br>installable from NPM:</p>
-<pre><code>npm install <span class="keyword">highlight</span>.js
+<h2 id="node-js">node.js</h2><p>Highlight.js can be used under node.js. The package with all supported languages is<br>installable from NPM:</p>
+<pre><code>npm <span class="keyword">install</span> highlight.js
 </code></pre><p>Alternatively, you can build it from the source with only languages you need:</p>
-<pre><code><span class="keyword">python</span> tools/build.<span class="keyword">py</span> -tnode lang1 lang2 ..
+<pre><code>python tools/build<span class="class">.py</span> -tnode lang1 lang2 ..
 </code></pre><p>Using the library:</p>
 <pre><code class="javascript"><span class="keyword">var</span> hljs = <span class="built_in">require</span>(<span class="string">'highlight.js'</span>);
 
@@ -28,18 +25,16 @@ hljs.highlight(lang, code).value;
 <span class="comment">// Automatic language detection</span>
 hljs.highlightAuto(code).value;
 </code></pre>
-<h2 id="Tab_replacement">Tab replacement</h2>
-<p>You can replace TAB (‘\x09’) characters used for indentation in your code<br>with some fixed number of spaces or with a <code>&lt;span&gt;</code> to give them special<br>styling:</p>
-<pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-  hljs.tabReplace = <span class="string">'    '</span>; <span class="comment">// 4 spaces</span>
-  <span class="comment">// ... or</span>
-  hljs.tabReplace = <span class="string">'&lt;span class="indent"&gt;\t&lt;/span&gt;'</span>;
+<h2 id="Tab_replacement">Tab replacement</h2><p>You can replace TAB (‘\x09’) characters used for indentation in your code<br>with some fixed number of spaces or with a <code>&lt;span&gt;</code> to give them special<br>styling:</p>
+<pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="nix">
+  hljs.<span class="variable">tabReplace =</span> '    '; // <span class="number">4</span> spaces
+  // ... <span class="constant">or</span>
+  hljs.<span class="variable">tabReplace =</span> '&lt;span <span class="variable">class=</span><span class="string">"indent"</span>&gt;\t&lt;/span&gt;';
 
   hljs.initHighlightingOnLoad();
 </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 </code></pre>
-<h2 id="Custom_initialization">Custom initialization</h2>
-<p>If you use different markup for code blocks you can initialize them manually<br>with <code>highlightBlock(code, tabReplace, useBR)</code> function. It takes a DOM element<br>containing the code to highlight and optionally a string with which to replace<br>TAB characters.</p>
+<h2 id="Custom_initialization">Custom initialization</h2><p>If you use different markup for code blocks you can initialize them manually<br>with <code>highlightBlock(code, tabReplace, useBR)</code> function. It takes a DOM element<br>containing the code to highlight and optionally a string with which to replace<br>TAB characters.</p>
 <p>Initialization using, for example, jQuery might look like this:</p>
 <pre><code class="javascript">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
   $(<span class="string">'pre code'</span>).each(<span class="function"><span class="keyword">function</span><span class="params">(i, e)</span> </span>{hljs.highlightBlock(e)});
@@ -49,8 +44,7 @@ hljs.highlightAuto(code).value;
 <p>If your code container relies on <code>&lt;br&gt;</code> tags instead of line breaks (i.e. if<br>it’s not <code>&lt;pre&gt;</code>) pass <code>true</code> into the third parameter of <code>highlightBlock</code><br>to make highlight.js use <code>&lt;br&gt;</code> in the output:</p>
 <pre><code class="javascript">$(<span class="string">'div.code'</span>).each(<span class="function"><span class="keyword">function</span><span class="params">(i, e)</span> </span>{hljs.highlightBlock(e, <span class="literal">null</span>, <span class="literal">true</span>)});
 </code></pre>
-<h2 id="Heuristics">Heuristics</h2>
-<p>Autodetection of a code’s language is done using a simple heuristic:<br>the program tries to highlight a fragment with all available languages and<br>counts all syntactic structures that it finds along the way. The language<br>with greatest count wins.</p>
+<h2 id="Heuristics">Heuristics</h2><p>Autodetection of a code’s language is done using a simple heuristic:<br>the program tries to highlight a fragment with all available languages and<br>counts all syntactic structures that it finds along the way. The language<br>with greatest count wins.</p>
 <p>This means that in short fragments the probability of an error is high<br>(and it really happens sometimes). In this cases you can set the fragment’s<br>language explicitly by assigning a class to the <code>&lt;code&gt;</code> element:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">code</span> <span class="attribute">class</span>=<span class="value">"html"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">code</span>&gt;</span><span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
 </code></pre>
@@ -58,12 +52,10 @@ hljs.highlightAuto(code).value;
 <p>To disable highlighting of a fragment altogether use “no-highlight” class:</p>
 <pre><code class="html"><span class="tag">&lt;<span class="title">pre</span>&gt;</span><span class="tag">&lt;<span class="title">code</span> <span class="attribute">class</span>=<span class="value">"no-highlight"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">code</span>&gt;</span><span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
 </code></pre>
-<h2 id="Export">Export</h2>
-<p>File export.html contains a little program that allows you to paste in a code<br>snippet and then copy and paste the resulting HTML code generated by the<br>highlighter. This is useful in situations when you can’t use the script itself<br>on a site.</p>
-<h2 id="Meta">Meta</h2>
-<ul>
+<h2 id="Export">Export</h2><p>File export.html contains a little program that allows you to paste in a code<br>snippet and then copy and paste the resulting HTML code generated by the<br>highlighter. This is useful in situations when you can’t use the script itself<br>on a site.</p>
+<h2 id="Meta">Meta</h2><ul>
 <li>Version: 7.3</li>
 <li>URL:     <a href="http://softwaremaniacs.org/soft/highlight/en/">http://softwaremaniacs.org/soft/highlight/en/</a></li>
-<li>Author:  Ivan Sagalaev (<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x6d;&#97;&#110;&#105;&#97;&#99;&#64;&#x73;&#x6f;&#x66;&#x74;&#x77;&#97;&#x72;&#101;&#x6d;&#97;&#110;&#x69;&#97;&#99;&#x73;&#46;&#x6f;&#x72;&#103;">&#x6d;&#97;&#110;&#105;&#97;&#99;&#64;&#x73;&#x6f;&#x66;&#x74;&#x77;&#97;&#x72;&#101;&#x6d;&#97;&#110;&#x69;&#97;&#99;&#x73;&#46;&#x6f;&#x72;&#103;</a>)</li>
+<li>Author:  Ivan Sagalaev (<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#109;&#x61;&#110;&#x69;&#x61;&#x63;&#64;&#x73;&#111;&#102;&#x74;&#x77;&#x61;&#114;&#101;&#x6d;&#x61;&#x6e;&#x69;&#97;&#99;&#x73;&#46;&#x6f;&#x72;&#x67;">&#109;&#x61;&#110;&#x69;&#x61;&#x63;&#64;&#x73;&#111;&#102;&#x74;&#x77;&#x61;&#114;&#101;&#x6d;&#x61;&#x6e;&#x69;&#97;&#99;&#x73;&#46;&#x6f;&#x72;&#x67;</a>)</li>
 </ul>
 <p>For the license terms see LICENSE files.<br>For the list of contributors see AUTHORS.en.txt file.</p>
